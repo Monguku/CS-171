@@ -9,20 +9,17 @@ def bunnies(rabbits, foxes, years):
     F = []
     list = []
     R.append(rabbits)
-    print(R[0])
     F.append(foxes)
-    print(F[0])
-    for x in range(1, years):
-        R.append(R[x - 1] + (math.floor(R[x - 1] * ((A - B) * F[x -1]))))
-        F.append(F[x - 1] - (math.floor(F[x - 1] * ((G - S) * R[x -1]))))
+    for x in range(1, years + 1):
+        R.append(R[x - 1] + (math.floor(R[x - 1] * (A - B * F[x -1]))))
+        F.append(F[x - 1] - (math.floor(F[x - 1] * (G - S * R[x -1]))))
     list.append(R[len(R)-1])
     list.append(F[len(F)-1])
     return list
-def main():
+if __name__ == "__main__":
     print('Welcome to Predator-Prey Model.')
     r_init = int(input('Enter Initial Rabbit Population:\n'))
     f_init = int(input('Enter Initial Fox Population:\n'))
     year = int(input('Enter Number of Years to Simulate:\n'))
     print('After %d years there will be %d rabbits.' % (year, bunnies(r_init, f_init, year)[0]))
     print('After %d years there will be %d foxes.' % (year, bunnies(r_init, f_init, year)[1]))
-main()
