@@ -22,7 +22,6 @@ if __name__ == "__main__":
             int_list[count].append(userIn[c])
 
 
-    #print(int_list)
     for i in range(len(int_list)):
         for ii in range(len(int_list[i])):
             newString += int_list[i][ii]
